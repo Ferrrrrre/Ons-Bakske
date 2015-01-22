@@ -1,0 +1,172 @@
+.centered-navigation {
+  ///////////////////////////////////////////////////////////////////////////////////
+  $base-border-radius: 3px !default;
+  $dark-gray: #333 !default;
+  $large-screen: em(860) !default;
+  $base-font-color: $dark-gray !default;
+  //////////////////////////////////////////////////////////////////////////////////
+
+  $centered-navigation-padding: 1em;
+  $centered-navigation-logo-height: 10em;
+  $centered-navigation-background: #FBCA0E;
+  $centered-navigation-color: transparentize($base-font-color, 0.3);
+  $centered-navigation-color-hover: $base-font-color;
+  $centered-navigation-height: 25px;
+  $centered-navigation-item-padding: 1em;
+  $centered-navigation-submenu-padding: 1em;
+  $centered-navigation-submenu-width: 12em;
+  $centered-navigation-item-nudge: 2.2em;
+  $horizontal-bar-mode: $large-screen;
+
+  background-color:  $centered-navigation-background;
+  border-bottom: 1px solid darken($centered-navigation-background, 6%);
+  max-height: $centered-navigation-height;
+  width: 100%;
+  z-index: 9999;
+  position: absolute;
+
+  @include media($horizontal-bar-mode) {
+    margin-top: 100px;
+    background-color: transparent;
+    border: none;
+  }
+
+  // Mobile view
+
+  .mobile-logo {
+    display: inline;
+    float: left;
+    max-height: $centered-navigation-height;
+    padding-left: $centered-navigation-padding;
+
+    img {
+      max-height: $centered-navigation-height;
+      padding: .8em 0;
+    }
+
+    @include media($horizontal-bar-mode) {
+      display: none;
+    }
+  }
+
+  .centered-navigation-mobile-menu {
+    color: $centered-navigation-color;
+    display: block;
+    float: right;
+    font-weight: 700;
+    line-height: $centered-navigation-height;
+    margin: 0;
+    padding-right: $centered-navigation-submenu-padding;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @include media ($horizontal-bar-mode) {
+      display: none;
+    }
+
+    &:hover {
+      color: $centered-navigation-color-hover;
+    }
+  }
+
+  // Nav menu
+
+  .centered-navigation-wrapper {
+    @include outer-container;
+    @include clearfix;
+    position: relative;
+    z-index: 999;
+  }
+
+  ul.centered-navigation-menu {
+    -webkit-transform-style: preserve-3d; // stop webkit flicker
+    clear: both;
+    display: none;
+    margin: 0 auto;
+    overflow: visible;
+    padding: 0;
+    width: 100%;
+    z-index: 99999;
+
+    &.show {
+      display: block;
+    }
+
+    @include media ($horizontal-bar-mode) {
+      display: block;
+      text-align: center;
+      
+    }
+  }
+
+  // The nav items
+
+  .nav-link:first-child {
+    @include media($horizontal-bar-mode) {
+      margin-left: $centered-navigation-item-nudge;
+    }
+  }
+
+  ul li.nav-link {
+    background: $centered-navigation-background;
+    display: block;
+    line-height: $centered-navigation-height;
+    text-align: right;
+    
+    z-index: 9999;
+
+    a {
+      color: #FBCA0E;
+      display: inline-block;
+      text-decoration: none;
+
+      
+
+      &:not(.logo):hover {
+        background-color: #FBCA0E;
+        color: #76A9AA;
+
+      }
+    }
+
+    @include media($horizontal-bar-mode) {
+      background: transparent;
+      float: right;
+      line-height: $centered-navigation-height;
+      border: #FBCA0E 3px solid;
+
+      a {
+        padding: 7px;
+
+        &:not(.logo){
+        padding: 12px;
+      }
+      }
+    }
+  }
+
+  li.logo.nav-link {
+    display: none;
+    line-height: 0;
+    border: none;
+
+    a{
+      height: 60px;
+    }
+
+    @include media($horizontal-bar-mode) {
+      display: block;
+      background-color: transparent;
+      float: left;
+
+    }
+  }
+
+  .logo img {
+
+    margin-top: -$centered-navigation-logo-height / 3;
+    max-height: $centered-navigation-logo-height;
+    float: left;
+  }
+
+}

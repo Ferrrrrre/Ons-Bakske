@@ -1,0 +1,78 @@
+$parallax-window-height: 100vh;
+$parallax-background-height: $parallax-window-height * 2;
+
+.parallax-window {
+  height: $parallax-window-height;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+}
+
+.parallax-static-content {
+  color: #9A9A8A;
+  padding: 2em 0 15em 0;
+  position: relative;
+  z-index: 9;
+}
+
+.parallax-background {
+  -webkit-filter: blur(5px); -moz-filter: blur(5px); -o-filter: blur(5px); -ms-filter: blur(5px); filter: blur(5px);
+  -webkit-filter: brightness(40%) contrast(70%);
+  background: url("../img/makers.jpg") repeat;
+  background-size: cover;
+  background-position: top;
+  height: $parallax-background-height;
+  left: 0;
+  position: absolute;
+  top: - $parallax-window-height / 3;
+  width: 100%;
+}
+
+  .hero-logo img {
+    height: 7.5em;
+    margin-bottom: 2.5em;
+    border-radius: 150px;
+  }
+
+  .hero-inner {
+    @include outer-container;
+    @include clearfix;
+    padding: 3em;
+    margin: auto;
+    text-align: center;
+      
+  }
+
+
+.hero-copy {
+  h1{
+    color: #76A9AA;
+    font-size: 4em;
+    width: 60%;
+    line-height: 69px;
+    text-align: left;
+    margin-top: 220px;
+  }
+  p{
+    color: #FAFAF2;
+    font-size: 1.3em;
+    text-align: left;
+    width: 50%;
+
+  }
+  a{
+    color: #FAFAF2;
+    font-size: 1.5em;
+    position: absolute;
+    text-align: center;
+    bottom: 20px;
+  }
+  a:hover{
+        color: #76A9AA;
+    }
+}
+
+
+// Based on http://codepen.io/skeurentjes/

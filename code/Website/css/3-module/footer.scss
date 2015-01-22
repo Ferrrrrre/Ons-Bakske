@@ -1,0 +1,68 @@
+.footer {
+  ///////////////////////////////////////////////////////////////////////////////////
+  $base-spacing: 1.5em !default;
+  $base-accent-color: #76A9AA !default;
+  $medium-screen: em(640) !default;
+  $large-screen: em(860) !default;
+  
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+    line-height: 1.5em;
+  }
+
+  a {
+    text-decoration: none;
+    color: #FBCA0E;
+
+    &:hover {
+      color: #FCD1AF;
+    }
+  }
+  //////////////////////////////////////////////////////////////////////////////////
+
+  $footer-background: #76A9AA;
+  $footer-color: #FAFAF2;
+  $footer-link-color: darken($footer-color, 0.6);
+  $footer-disclaimer-color: darken($footer-color, 0.6);
+
+  background: $footer-background;
+  padding: ($base-spacing * 2) $gutter;
+  width: 100%;
+
+  .footer-logo {
+    margin-bottom: 2em;
+    text-align: center;
+
+    img {
+      height: 8em;
+    }
+  } 
+
+  .footer-links {
+    @include clearfix;
+    margin-bottom: $base-spacing;
+
+    @include media($medium-screen) {
+      @include shift(3);
+    }
+  }
+
+  hr {
+    border: 1px solid transparentize($footer-disclaimer-color, 0.3);
+    margin: 0 auto $base-spacing;
+    width: 12em;
+  }
+
+  p {
+    color: $footer-disclaimer-color;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    margin: auto;
+    max-width: 35em;
+    text-align: center;
+  }
+}
